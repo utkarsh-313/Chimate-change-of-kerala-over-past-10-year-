@@ -1,0 +1,80 @@
+library(rgdal)
+library(ggplot2)
+library(rgeos)
+library(raster)
+library(sf)
+library(tmap)
+
+Shape_file = readOGR("E:/Symbiosis/R programming/r_assignment/kerala_district",layer = "kerala_district")
+plot(Shape_file)
+
+
+setwd("E:/Symbiosis/R programming/r_assignment")
+winter <-read.csv("winter.csv")
+mergefilez1<-merge(Shape_file,winter)
+tm_shape(mergefilez1) + tm_fill("Avg_win",palette = "-Blues",main="Average Winter Temp of Kerala")+tm_borders(alpha = .9)+tm_layout(legend.position = c("left","bottom"))
+tmap_mode("view")
+tmap_last
+
+winter <-read.csv("winter2021.csv")
+mergefilez2<-merge(Shape_file,winter)
+tm_shape(mergefilez2) + tm_fill("Avg_win",palette = "-Blues",main="Average Winter Temp of Kerala")+tm_borders(alpha = .2)+tm_layout(legend.position = c("left","bottom"))
+tmap_mode("view")
+tmap_last()
+
+summer <-read.csv("summer.csv")
+mergefilez3<-merge(Shape_file,summer)
+tm_shape(mergefilez3) + tm_fill("Avg_Temp",palette = "-Reds",main="Average Summer Temp of Kerala")+tm_borders(alpha = .2)+tm_layout(legend.position = c("left","bottom"))
+tmap_mode("view")
+tmap_last()
+
+summer <-read.csv("summer2021.csv")
+mergefilez4<-merge(Shape_file,summer)
+tm_shape(mergefilez4) + tm_fill("Avg_Temp",palette = "-Reds",main="Average Summer Temp of Kerala")+tm_borders(alpha = .2)+tm_layout(legend.position = c("left","bottom"))
+tmap_mode("view")
+tmap_last()
+
+rain <-read.csv("rain.csv")
+mergefilez5<-merge(Shape_file,rain)
+tm_shape(mergefilez5) + tm_fill("Avg_rain_mm",palette = "Blues",main="Average Rain Temp of Kerala")+tm_borders(alpha = .2)+tm_layout(legend.position = c("left","bottom"))
+tmap_mode("view")
+tmap_last()
+
+rain <-read.csv("rain2021.csv")
+mergefilez6<-merge(Shape_file,rain)
+tm_shape(mergefilez6) + tm_fill("Avg_rain_mm",palette = "Blues",main="Average Rain Temp of Kerala")+tm_borders(alpha = .2)+tm_layout(legend.position = c("left","bottom"))
+tmap_mode("view")
+tmap_last()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
